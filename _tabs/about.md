@@ -7,7 +7,7 @@ order: 4
 
 2026-11-01 world.junho85.pe.kr에서 이 주소로 옮겼습니다. 예전 글 주소로 들어오면 이곳의 같은 글로 넘어옵니다.
 
-- 경제노트: [이코노준](https://money.junho85.pe.kr/)
+- 경제노트: [money.junho85.pe.kr](https://money.junho85.pe.kr/)
 - 생활노트: [life.junho85.pe.kr](https://life.junho85.pe.kr/)
 - 공개 페이지 모음: [준킴월드](https://world.junho85.pe.kr/)
 - 이력서: [world.junho85.pe.kr/RESUME](https://world.junho85.pe.kr/RESUME/)

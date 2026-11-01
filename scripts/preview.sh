@@ -2,7 +2,7 @@
 # 로컬 미리보기 (Docker). 초안, 미발행, 미래 날짜 글까지 보이게 띄운다.
 #   bash scripts/preview.sh          띄우고 바로 돌아온다 → http://localhost:4003/
 #   bash scripts/preview.sh --stop   내린다
-# 포트 4003, LiveReload 35732. world(4000), 이코노준(4001), 생활노트(4002)와 겹치지 않게 했다.
+# 포트 4003, LiveReload 35732. world(4000), 경제노트(4001), 생활노트(4002)와 겹치지 않게 했다.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 NAME=dev-blog-preview
