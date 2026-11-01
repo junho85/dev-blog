@@ -78,9 +78,9 @@ comments:
   provider: giscus
   giscus:
     repo: junho85/dev-blog
-    repo_id: ""        # TODO 저장소 생성 후 GraphQL 로 조회해 채운다
+    repo_id: R_kgDOVfFU8Q
     category: General
-    category_id: ""    # TODO
+    category_id: DIC_kwDOVfFU8c4DKJiO
     mapping: pathname          # 글 경로로 Discussion 을 매칭
     strict: 1                  # 경로 해시로 엄격 매칭
     input_position: bottom
