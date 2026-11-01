@@ -1,0 +1,124 @@
+title: 기술노트
+tagline: 준호씨의 기술노트
+description: 개발자 김준호가 직접 만들고 측정해 본 기록. AI 모델 실험, 개발 도구, 홈서버, 아두이노와 라즈베리파이.
+
+url: "https://dev.junho85.pe.kr"
+baseurl: ""
+
+author:
+  name: 김준호
+  email: junho85@gmail.com
+
+timezone: Asia/Seoul
+
+# 글 목차(TOC) 전체 스위치. 테마는 이것과 글별 toc(defaults 에서 true)가 둘 다 켜져야 목차를 그린다
+toc: true
+
+lang: ko-KR
+
+github:
+  username: junho85
+
+twitter:
+  username: junho85
+
+avatar: /assets/img/avatar.jpg
+
+social:
+  name: 김준호
+  email: junho85@gmail.com
+  links:
+    - https://github.com/junho85
+
+theme: jekyll-theme-chirpy
+
+# Chirpy 는 코드블록 왼쪽 여백을 `.highlight table td:first-child` 에 주기 때문에
+# block.line_numbers 를 켜서 rouge 테이블이 생성되어야 여백이 적용된다.
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+plugins:
+  - jekyll-feed
+  - jekyll-archives
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+paginate: 10
+paginate_path: "/page:num/"
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+# 댓글 — giscus (GitHub Discussions 기반)
+#   댓글은 이 저장소의 Discussions > General 에 쌓인다.
+#   repo_id / category_id 는 GitHub GraphQL 로 조회한 값이다.
+comments:
+  provider: giscus
+  giscus:
+    repo: junho85/dev-blog
+    repo_id: ""        # TODO 저장소 생성 후 GraphQL 로 조회해 채운다
+    category: General
+    category_id: ""    # TODO
+    mapping: pathname          # 글 경로로 Discussion 을 매칭
+    strict: 1                  # 경로 해시로 엄격 매칭
+    input_position: bottom
+    lang: ko
+    reactions_enabled: 1
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      # 댓글은 _layouts/post.html 에서 본문 바로 아래에 렌더한다.
+      # 여기 나열한 것들은 그 아래로 간다.
+      tail_includes:
+        - related-posts
+        - post-nav
+        - adsense-tail
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+compress_html:
+  ignore:
+    envs: development
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - scripts
+  - README.md
+  - LICENSE
+  - "*.config.js"
+  - package*.json

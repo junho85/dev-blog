@@ -1,0 +1,65 @@
+/* Gemini TTS 비교 글 차트. 색은 dataviz 기본 팔레트(검증 통과: 라이트 #ffffff, 다크 #1b1b1e 배경) */
+.gviz {
+  --gv-surface: #ffffff;
+  --gv-ink: #0b0b0b;
+  --gv-ink-2: #52514e;
+  --gv-muted: #898781;
+  --gv-grid: #e1e0d9;
+  --gv-axis: #c3c2b7;
+  --gv-s1: #2a78d6;
+  --gv-s2: #eb6834;
+  --gv-de: #c3c2b7;
+  --gv-tip-bg: #ffffff;
+  --gv-tip-border: rgba(11, 11, 11, 0.12);
+  margin: 1.25rem 0 1.5rem;
+  position: relative;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode="light"]) .gviz {
+    --gv-surface: #1b1b1e;
+    --gv-ink: #ffffff;
+    --gv-ink-2: #c3c2b7;
+    --gv-muted: #898781;
+    --gv-grid: #2c2c2a;
+    --gv-axis: #45453f;
+    --gv-s1: #3987e5;
+    --gv-s2: #d95926;
+    --gv-de: #55544f;
+    --gv-tip-bg: #26262a;
+    --gv-tip-border: rgba(255, 255, 255, 0.14);
+  }
+}
+html[data-mode="dark"] .gviz {
+  --gv-surface: #1b1b1e;
+  --gv-ink: #ffffff;
+  --gv-ink-2: #c3c2b7;
+  --gv-muted: #898781;
+  --gv-grid: #2c2c2a;
+  --gv-axis: #45453f;
+  --gv-s1: #3987e5;
+  --gv-s2: #d95926;
+  --gv-de: #55544f;
+  --gv-tip-bg: #26262a;
+  --gv-tip-border: rgba(255, 255, 255, 0.14);
+}
+.gviz-title { font-weight: 600; font-size: 0.98rem; color: var(--gv-ink); margin: 0 0 0.15rem; }
+.gviz-sub { font-size: 0.85rem; color: var(--gv-ink-2); margin: 0 0 0.5rem; }
+.gviz-legend { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; font-size: 0.82rem; color: var(--gv-ink-2); margin: 0 0 0.35rem; }
+.gviz-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.gviz-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+.gviz svg { display: block; width: 100%; overflow: visible; }
+.gviz svg text { font-family: inherit; }
+.gviz .gv-hit { fill: transparent; cursor: default; outline: none; }
+.gviz .gv-hit:focus-visible { stroke: var(--gv-ink-2); stroke-width: 1px; }
+.gviz .gv-mark.gv-hover { opacity: 0.78; }
+.gviz-multi { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.5rem 1rem; }
+.gviz-panel-title { font-size: 0.85rem; font-weight: 600; color: var(--gv-ink-2); margin: 0.25rem 0 0.1rem; }
+.gviz-note { font-size: 0.8rem; color: var(--gv-muted); margin: 0.35rem 0 0; }
+.gviz-tip {
+  position: absolute; pointer-events: none; z-index: 5; display: none;
+  background: var(--gv-tip-bg); border: 1px solid var(--gv-tip-border); border-radius: 8px;
+  padding: 0.4rem 0.6rem; font-size: 0.8rem; color: var(--gv-ink-2); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+}
+.gviz-tip b { display: block; color: var(--gv-ink); font-size: 0.95rem; }
+.gviz-tip .k { display: inline-block; width: 12px; height: 2px; vertical-align: middle; margin-right: 0.35rem; }

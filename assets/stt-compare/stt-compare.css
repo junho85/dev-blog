@@ -1,0 +1,66 @@
+/* 실시간 전사 비교 위젯 — 포스트 본문에 인라인으로 붙는다. 모든 규칙을 #stt-compare 로 스코프한다 */
+#stt-compare{
+  --sc-panel:#161b22; --sc-line:#30363d; --sc-fg:#e6edf3; --sc-mut:#8b949e;
+  --sc-top:3.6rem;
+  color:var(--sc-fg);
+  font:15px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  margin:26px 0 8px;
+}
+#stt-compare *{box-sizing:border-box}
+
+#stt-compare .scPlayer{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  background:var(--sc-panel);border:1px solid var(--sc-line);border-radius:12px;
+  padding:13px 16px;position:sticky;top:var(--sc-top);z-index:1;
+}
+#stt-compare .scPlayer button{
+  background:#238636;color:#fff;border:0;border-radius:8px;padding:9px 20px;
+  font-size:.98rem;font-weight:600;cursor:pointer;line-height:1.2;
+}
+#stt-compare .scPlayer button:hover{background:#2ea043}
+#stt-compare .scPlayer button.sec{background:#21262d;border:1px solid var(--sc-line);color:var(--sc-fg)}
+#stt-compare .scPlayer button.sec:hover{background:#2d333b}
+#stt-compare .scClock{font:600 1.05rem ui-monospace,Menlo,monospace;min-width:92px}
+#stt-compare .scBar{
+  flex:1 1 180px;height:12px;background:#21262d;border-radius:6px;
+  position:relative;cursor:pointer;overflow:hidden;
+}
+#stt-compare .scBar i{display:block;height:100%;width:0;background:#238636}
+#stt-compare .scMark{position:absolute;top:0;bottom:0;width:2px;background:#6e7681}
+#stt-compare .scMarkTxt{color:var(--sc-mut);font-size:.76rem;white-space:nowrap}
+#stt-compare .scLegend{color:var(--sc-mut);font-size:.8rem;margin:8px 2px 0}
+#stt-compare .scLegend i{color:#8b949e;border-bottom:1px dashed #484f58}
+
+#stt-compare .scLane{
+  background:var(--sc-panel);border:1px solid var(--sc-line);border-radius:12px;
+  padding:13px 17px;margin:9px 0;transition:border-color .2s;
+}
+#stt-compare .scLane.fired{border-color:#484f58}
+#stt-compare .scHead{display:flex;align-items:baseline;gap:9px;margin-bottom:7px;flex-wrap:wrap}
+#stt-compare .scDot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+#stt-compare .scNm{font-weight:700}
+#stt-compare .scSb{color:var(--sc-mut);font-size:.82rem}
+#stt-compare .scFirst{margin-left:auto;font:600 .83rem ui-monospace,Menlo,monospace;color:var(--sc-mut)}
+#stt-compare .scOut{
+  max-height:4.8em;overflow-y:auto;font-size:1.01rem;word-break:keep-all;
+  scrollbar-width:none;
+}
+#stt-compare .scOut::-webkit-scrollbar{display:none}
+#stt-compare .scLane.batch .scOut{max-height:none;overflow:visible}
+#stt-compare .scOut .seg{opacity:.92}
+#stt-compare .scOut .seg.new{background:rgba(255,255,255,.15);border-radius:3px}
+#stt-compare .scOut .seg.interim{color:#8b949e;font-style:italic;border-bottom:1px dashed #484f58}
+#stt-compare .scWait{color:#6e7681}
+#stt-compare .scWait b{color:#8b949e;font-weight:600}
+
+@media (max-width:600px){
+  /* 헤더를 두 줄로 — 1줄: 이름 + 첫 표시, 2줄: 방식 설명 */
+  #stt-compare .scSb{order:3;flex-basis:100%;margin-top:2px}
+  #stt-compare .scFirst{order:2;margin-left:auto;font-size:.78rem}
+  #stt-compare .scNm{font-size:.97rem}
+  #stt-compare .scClock{min-width:72px;font-size:.98rem}
+  #stt-compare .scPlayer{gap:9px;padding:11px 13px}
+  #stt-compare .scPlayer button{padding:8px 15px;font-size:.92rem}
+  #stt-compare .scLane{padding:11px 13px}
+  #stt-compare .scOut{font-size:.97rem}
+}

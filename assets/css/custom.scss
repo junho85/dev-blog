@@ -1,0 +1,32 @@
+---
+---
+
+.highlight code {
+  white-space: pre;
+}
+
+/* 홈 상단 광고 빈 여백 제거 */
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
+
+ins.adsbygoogle {
+  display: block;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* 표 칸 줄바꿈 허용 — 글에서 표 바로 아래에 {: .compact} 를 붙여 켠다.
+   테마 기본은 모든 칸이 white-space: nowrap 이라 긴 표가 가로 스크롤이 된다 */
+.table-wrapper > table.compact th,
+.table-wrapper > table.compact td {
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  padding: 0.35rem 0.6rem;
+  vertical-align: top;
+}
+.table-wrapper > table.compact code {
+  white-space: normal;
+  word-break: break-all;
+}

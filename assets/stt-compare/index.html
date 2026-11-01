@@ -1,0 +1,32 @@
+<!doctype html><html lang=ko><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>같은 녹음, 여섯 가지 전사 방식</title>
+<link rel=stylesheet href="stt-compare.css?v=2">
+<style>
+body{margin:0;background:#0d1117;color:#e6edf3;
+  font:15px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 18px 70px}
+h1{font-size:1.6rem;margin:0 0 6px}
+.lede{color:#8b949e;margin:0 0 4px;font-size:.94rem}
+h2{font-size:1.2rem;margin:34px 0 6px}
+.full{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:13px 17px;margin:10px 0}
+.full b{display:block;margin-bottom:6px}
+.full p{margin:0;word-break:keep-all}
+#stt-compare{--sc-top:10px}
+</style></head><body><div class=wrap>
+<h1>같은 녹음, 여섯 가지 전사 방식</h1>
+<p class=lede>89초짜리 한국어 면접 답변 하나를 여섯 방식에 똑같이 흘려보내고, <b>각 방식이 언제 무엇을 내놓았는지</b> 측정한 시각 그대로 재생합니다. 진행 막대를 눌러 원하는 지점으로 옮길 수 있습니다.</p>
+<div id=stt-compare></div>
+<h2 id=full>여섯 방식의 전사 전문</h2>
+<p class=lede>재생이 끝난 상태의 확정 결과입니다. Deepgram은 중간 결과를 뺀 확정본입니다.</p>
+<div id=full-list></div>
+</div>
+<script src="stt-compare-data.js?v=2"></script>
+<script src="stt-compare.js?v=2"></script>
+<script>
+(function(){var D=window.STT_COMPARE,box=document.getElementById('full-list');
+D.lanes.forEach(function(l){var d=D.data[l.k];var div=document.createElement('div');div.className='full';
+var b=document.createElement('b');b.textContent=l.name;var p=document.createElement('p');
+p.textContent=d.text.replace(/\s+/g,' ').trim();div.appendChild(b);div.appendChild(p);box.appendChild(div);});})();
+</script>
+</body></html>

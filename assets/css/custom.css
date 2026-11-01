@@ -1,0 +1,9 @@
+/* 댓글(giscus) 영역 — 본문 바로 아래에 붙어 답답해 보이지 않게 여백을 준다.
+   위젯은 _includes/comments/giscus.html 이 #comments-anchor 안에 넣는다. */
+#comments-anchor {
+  margin-top: 3rem;
+}
+
+#comments-anchor:empty {
+  margin-top: 0;   /* 댓글이 아직 안 붙었을 때 빈 여백이 생기지 않게 */
+}

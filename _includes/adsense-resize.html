@@ -1,0 +1,14 @@
+<script>
+(function() {
+  function resizeAdContainers() {
+    document.querySelectorAll('ins.adsbygoogle').forEach(function(ins) {
+      var iframe = ins.querySelector('iframe');
+      if (iframe && iframe.offsetHeight > 0) {
+        ins.style.height = iframe.offsetHeight + 'px';
+      }
+    });
+  }
+  window.addEventListener('load', resizeAdContainers);
+  setTimeout(resizeAdContainers, 2000);
+})();
+</script>

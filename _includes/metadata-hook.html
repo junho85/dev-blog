@@ -1,0 +1,16 @@
+<meta name="google-adsense-account" content="ca-pub-8756229796915320">
+{% include adsense.html %}
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+{%- comment -%}
+GA4 (속성 552185254). 2026-11-01 world.junho85.pe.kr 에서 dev.junho85.pe.kr 로 옮기면서 같은 측정 ID 를 그대로 쓴다. 기록이 이어지게 하려고. 로컬 개발 데이터가 섞이지 않게 production 에서만 넣는다.
+{%- endcomment -%}
+{%- if jekyll.environment == 'production' -%}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2T4S1LS2H7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2T4S1LS2H7');
+</script>
+{%- endif -%}

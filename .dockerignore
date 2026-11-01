@@ -1,0 +1,14 @@
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+.bundle
+node_modules
+.git
+.gitignore
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

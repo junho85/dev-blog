@@ -1,0 +1,178 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Ruby gem shape -->
+    <polygon id="gem" points="20,0 40,15 40,45 20,60 0,45 0,15" />
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Drop shadow -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Pattern for missing state -->
+    <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0,8 l8,-8 M-2,2 l4,-4 M6,10 l4,-4" stroke="#CC342D" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid pattern overlay -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#333" stroke-width="0.5" opacity="0.3"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Left side - Missing/Not Found state -->
+  <g transform="translate(200, 200)">
+    <!-- Missing gem outline with dashed border -->
+    <g opacity="0.6">
+      <use href="#gem" fill="none" stroke="#CC342D" stroke-width="3" stroke-dasharray="8,4" transform="translate(0,0) scale(2)" filter="url(#shadow)"/>
+      <use href="#gem" fill="url(#diagonalHatch)" transform="translate(0,0) scale(2)" opacity="0.5"/>
+    </g>
+    
+    <!-- Question mark symbol for "not found" -->
+    <g transform="translate(40, 40)">
+      <circle cx="0" cy="0" r="35" fill="none" stroke="#CC342D" stroke-width="2" stroke-dasharray="5,3" opacity="0.8"/>
+      <text x="0" y="10" font-family="Arial, sans-serif" font-size="40" fill="#CC342D" text-anchor="middle" font-weight="bold">?</text>
+    </g>
+    
+    <!-- Error text -->
+    <text x="0" y="160" font-family="'SF Mono', Monaco, monospace" font-size="22" fill="#CC342D" font-weight="bold">
+      bundler 2.4.19
+    </text>
+    <text x="0" y="190" font-family="'SF Mono', Monaco, monospace" font-size="18" fill="#ff6666">
+      NOT FOUND
+    </text>
+    
+    <!-- Error message -->
+    <rect x="-20" y="210" width="240" height="80" rx="5" fill="#2a1f1f" stroke="#CC342D" stroke-width="1" opacity="0.8"/>
+    <text x="0" y="235" font-family="'SF Mono', Monaco, monospace" font-size="12" fill="#ff6666">
+      Could not find
+    </text>
+    <text x="0" y="252" font-family="'SF Mono', Monaco, monospace" font-size="12" fill="#ff6666">
+      'bundler' (2.4.19)
+    </text>
+    <text x="0" y="275" font-family="'SF Mono', Monaco, monospace" font-size="11" fill="#999">
+      required by Gemfile.lock
+    </text>
+  </g>
+  
+  <!-- Center - Arrow with solution command -->
+  <g transform="translate(600, 315)">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#66ff66" />
+      </marker>
+    </defs>
+    
+    <!-- Arrow -->
+    <path d="M -120,0 C -60,0 60,0 120,0" stroke="#66ff66" stroke-width="3" fill="none" marker-end="url(#arrowhead)" opacity="0.8" filter="url(#glow)"/>
+    
+    <!-- Solution command box -->
+    <rect x="-180" y="-80" width="360" height="50" rx="8" fill="#1e3a1e" stroke="#52c41a" stroke-width="2" opacity="0.9"/>
+    <text x="0" y="-65" font-family="'SF Mono', Monaco, monospace" font-size="14" fill="#66ff66" text-anchor="middle">
+      SOLUTION
+    </text>
+    <text x="0" y="-45" font-family="'SF Mono', Monaco, monospace" font-size="16" fill="#fff" text-anchor="middle">
+      gem install bundler:2.4.19
+    </text>
+  </g>
+  
+  <!-- Right side - Success state -->
+  <g transform="translate(900, 200)">
+    <!-- Success gem cluster -->
+    <g opacity="0.9">
+      <use href="#gem" fill="#52c41a" transform="translate(0,0) scale(2)" filter="url(#shadow)"/>
+      <use href="#gem" fill="#73d13d" transform="translate(60,20) scale(1.5)" opacity="0.8"/>
+      <use href="#gem" fill="#95de64" transform="translate(30,60) scale(1.2)" opacity="0.6"/>
+    </g>
+    
+    <!-- Success checkmark -->
+    <g transform="translate(40, 40)">
+      <circle cx="0" cy="0" r="35" fill="#52c41a" opacity="0.2"/>
+      <path d="M -15,0 L -5,10 L 20,-15" stroke="#52c41a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Success text -->
+    <text x="0" y="160" font-family="'SF Mono', Monaco, monospace" font-size="22" fill="#52c41a" font-weight="bold">
+      bundler 2.4.19
+    </text>
+    <text x="0" y="190" font-family="'SF Mono', Monaco, monospace" font-size="18" fill="#66ff66">
+      INSTALLED
+    </text>
+    
+    <!-- Success message -->
+    <rect x="-20" y="210" width="240" height="80" rx="5" fill="#1e2e1e" stroke="#52c41a" stroke-width="1" opacity="0.8"/>
+    <text x="0" y="235" font-family="'SF Mono', Monaco, monospace" font-size="12" fill="#66ff66">
+      Successfully installed
+    </text>
+    <text x="0" y="252" font-family="'SF Mono', Monaco, monospace" font-size="12" fill="#66ff66">
+      bundler-2.4.19
+    </text>
+    <text x="0" y="275" font-family="'SF Mono', Monaco, monospace" font-size="11" fill="#999">
+      1 gem installed
+    </text>
+  </g>
+  
+  <!-- Jekyll and Ruby logos/badges -->
+  <g transform="translate(600, 100)">
+    <!-- Jekyll badge -->
+    <g transform="translate(-100, 0)">
+      <rect x="-50" y="-25" width="100" height="50" rx="8" fill="#333" stroke="#666" stroke-width="1" opacity="0.8"/>
+      <text x="0" y="5" font-family="Georgia, serif" font-size="24" fill="#fff" text-anchor="middle">Jekyll</text>
+    </g>
+    
+    <!-- Ruby badge -->
+    <g transform="translate(100, 0)">
+      <rect x="-50" y="-25" width="100" height="50" rx="8" fill="#333" stroke="#CC342D" stroke-width="1" opacity="0.8"/>
+      <use href="#gem" fill="#CC342D" transform="translate(-15,-15) scale(0.5)"/>
+      <text x="10" y="5" font-family="Arial, sans-serif" font-size="20" fill="#CC342D" text-anchor="middle">Ruby</text>
+    </g>
+  </g>
+  
+  <!-- Title text -->
+  <text x="600" y="470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" fill="#fff" text-anchor="middle" font-weight="300">
+    Fixing Missing Bundler Version
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="510" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" fill="#999" text-anchor="middle">
+    Installing the exact bundler version required by your Jekyll project
+  </text>
+  
+  <!-- Terminal window at bottom -->
+  <g transform="translate(600, 560)" opacity="0.7">
+    <rect x="-200" y="-20" width="400" height="40" rx="6" fill="#1a1a1a" stroke="#444" stroke-width="1"/>
+    <circle cx="-180" cy="0" r="4" fill="#ff5f56"/>
+    <circle cx="-160" cy="0" r="4" fill="#ffbd2e"/>
+    <circle cx="-140" cy="0" r="4" fill="#27c93f"/>
+    <text x="-100" y="5" font-family="'SF Mono', Monaco, monospace" font-size="14" fill="#66ff66">$</text>
+    <text x="-80" y="5" font-family="'SF Mono', Monaco, monospace" font-size="14" fill="#fff">
+      gem install bundler:2.4.19
+    </text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <g opacity="0.2">
+    <!-- Top left corner accent -->
+    <path d="M 0,0 L 250,0 L 0,250 Z" fill="#CC342D" opacity="0.1"/>
+    <!-- Bottom right corner accent -->
+    <path d="M 1200,630 L 950,630 L 1200,380 Z" fill="#52c41a" opacity="0.1"/>
+  </g>
+</svg>
