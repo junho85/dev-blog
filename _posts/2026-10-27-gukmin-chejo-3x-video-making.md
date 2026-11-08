@@ -9,7 +9,7 @@ image: /assets/images/2026-10-27-gukmin-chejo-thumbnail.jpg
 밤에 자기 전에 유튜브에서 국민체조 영상을 틀어 놓고 세 번 연속으로 따라 하는 편입니다. 그 영상을 **직접 만든 영상으로 바꿨습니다.** 3D 캐릭터 세 사람이 운동장, 잔디밭, 해변에서 한 회씩 체조를 하고, 화면 오른쪽에는 지금 하는 동작의 이름과 설명, 다음 동작이 나옵니다. 길이는 14분 44.6초이고 4K 60fps입니다.
 
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:720px;border-radius:8px;margin:1.2rem 0;">
-  <iframe src="https://www.youtube.com/embed/lokzQ_UGkvU"
+  <iframe src="https://www.youtube.com/embed/nqn6Mknnskw"
     title="국민체조 연속 3회 따라하기"
     loading="lazy" allowfullscreen
     style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
@@ -17,6 +17,9 @@ image: /assets/images/2026-10-27-gukmin-chejo-thumbnail.jpg
 </div>
 
 *완성본. 1회는 학교 운동장, 2회는 잔디밭(손과 발의 자취), 3회는 해변(뼈대 모습)에서 합니다.*
+
+> 위 영상은 이 글을 쓴 뒤 사람을 다섯으로 늘리고(남녀를 섞었습니다) 조명을 바꾼 새 판입니다. 글의 설명과 그림은 세 사람이던 첫 판 기준입니다. 첫 판은 [여기](https://youtu.be/lokzQ_UGkvU)에서 볼 수 있습니다.
+{: .prompt-info }
 
 캐릭터 동작은 키프레임을 손으로 하나하나 찍어 만들지 않았습니다. **참고 영상에서 사람의 관절 위치를 뽑아 캐릭터에 옮기고**, 데이터가 틀린 곳만 구령에 맞춰 직접 짰습니다. 코드는 Claude Code가 쓰고, 저는 확인 페이지에서 동작을 보며 「뜀뛰기 할 때 무릎이 쫙 펴질 정도로 차야 한다」처럼 말로 지적했습니다.
 
@@ -179,7 +182,8 @@ _3회차 뜀뛰기. 왼쪽은 고치기 전(작은 화면이 반쯤 비친다), 
 
 ## 참고 자료 {#references}
 
-- [완성본 - 국민체조 연속 3회 따라하기](https://youtu.be/lokzQ_UGkvU)
+- [완성본 - 국민체조 연속 3회 따라하기](https://youtu.be/nqn6Mknnskw)
+- [첫 판(세 사람) - 국민체조 연속 3회 따라하기](https://youtu.be/lokzQ_UGkvU)
 - [대한체육회 국민체조 교육용 영상](https://www.youtube.com/watch?v=h66Ua2mYbRk)
 - [HyperFrames](https://hyperframes.heygen.com/)
 - [MediaPipe Pose Landmarker](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker)
