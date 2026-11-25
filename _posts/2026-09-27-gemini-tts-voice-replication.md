@@ -8,7 +8,7 @@ image:
   alt: "Gemini API Voice replication 문서 첫 부분. Gemini 3.8 Flash TTS와 3.8 Flash-Lite TTS가 음성 복제를 지원한다는 문장과, 원본 음성과 동의 녹음을 검증해 voice ID를 받은 뒤 합성에 쓰는 흐름도"
 ---
 
-> Gemini TTS 3.8 시험기 3편 중 2편입니다. [1편 네 모델 비교](/2026/09/27/gemini-tts-podcast-four-models-compared.html) · **2편 내 목소리 복제** · [3편 3.8 기능 시험](/2026/09/27/gemini-3-8-tts-features-tested.html)
+> Gemini TTS 3.8 테스트 후기 3편 중 2편입니다. [1편 네 모델 비교](/2026/09/27/gemini-tts-podcast-four-models-compared.html), **2편 내 목소리 복제**, [3편 3.8 기능 테스트](/2026/09/27/gemini-3-8-tts-features-tested.html)
 {: .prompt-info }
 
 [1편](/2026/09/27/gemini-tts-podcast-four-models-compared.html)에서 Gemini TTS 네 모델로 같은 팟캐스트를 만들어 비교했습니다. 이번에는 3.8에 새로 생긴 Voice replication(음성 복제)으로 제 목소리를 복제해 봤습니다. 짧은 녹음을 올려 목소리 ID를 받고, 이후 합성에서 Leda 같은 기본 목소리 대신 그 ID를 넣는 방식입니다.
@@ -132,7 +132,7 @@ _코사인 유사도다. 굵게 표시한 칸이 자기 참조 녹음과의 비�
 </details>
 
 - **복제한 목소리는 모두 자기 참조 녹음과 가장 닮았습니다.** 로컬도 Gemini도 참조를 바꾸면 결과가 그쪽으로 따라갑니다.
-- **같은 참조(새 원본)로 비교하면 셋 다 0.92~0.94 안팎**입니다. 실제 녹음끼리(0.912)보다 높은 값도 나왔는데, 이 지표는 목소리뿐 아니라 마이크와 방 소리까지 닮은 것을 점수로 주는 것으로 보입니다. 그래서 0.91을 넘는 구간 안에서 순위를 매기지는 않았습니다.
+- **같은 참조(새 원본)로 비교하면 세 방식 모두 0.92~0.94 안팎**입니다. 실제 녹음끼리(0.912)보다 높은 값도 나왔는데, 이 지표는 목소리뿐 아니라 마이크와 방 소리까지 닮은 것을 점수로 주는 것으로 보입니다. 그래서 0.91을 넘는 구간 안에서 순위를 매기지는 않았습니다.
 - **3.1은 복제 키를 쓰지만 덜 닮았습니다**(0.84~0.86). 그래도 Charon(0.6 안팎)과는 확연히 다릅니다.
 
 유사도보다 크게 갈린 건 **쓸 수 있는 결과의 비율**이었습니다. 모든 후보의 끝부분을 받아써 확인했습니다.
@@ -179,9 +179,9 @@ _speech-generation 문서의 Limitations 절(2026-09-27 캡처)_
 
 ## 읽을 때 감안할 점 {#caveats}
 
-- **한 사람, 한 번의 녹음입니다.** 녹음 환경을 바꿔 가며 몇 번까지 거절되는지는 시험하지 않았습니다.
+- **한 사람, 한 번의 녹음입니다.** 녹음 환경을 바꿔 가며 몇 번까지 거절되는지는 테스트하지 않았습니다.
 - **닮은 정도는 화자 임베딩 모델(resemblyzer) 하나로 측정했습니다.** 마이크와 방 소리까지 점수에 섞이는 것으로 보여, 0.91 이상에서는 순위를 매기지 않았습니다.
-- **복제 키는 테스트용**(`store: false`, 7일)으로 만들었습니다. 서버에 저장하는 방식은 시험하지 않았습니다.
+- **복제 키는 테스트용**(`store: false`, 7일)으로 만들었습니다. 서버에 저장하는 방식은 테스트하지 않았습니다.
 
 ## 참고 자료 {#references}
 
@@ -189,4 +189,4 @@ _speech-generation 문서의 Limitations 절(2026-09-27 캡처)_
 - [Gemini API - Speech generation (text-to-speech)](https://ai.google.dev/gemini-api/docs/speech-generation)
 - [Gemini API - Pricing](https://ai.google.dev/gemini-api/docs/pricing)
 - [1편: Gemini TTS 네 가지로 같은 팟캐스트를 만들어 봤습니다](/2026/09/27/gemini-tts-podcast-four-models-compared.html)
-- [3편: Gemini 3.8 TTS가 내세운 기능을 시험해 봤습니다](/2026/09/27/gemini-3-8-tts-features-tested.html)
+- [3편: Gemini 3.8 TTS가 내세운 기능을 테스트해 봤습니다](/2026/09/27/gemini-3-8-tts-features-tested.html)

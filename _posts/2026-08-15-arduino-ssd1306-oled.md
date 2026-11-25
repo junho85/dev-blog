@@ -130,7 +130,7 @@ if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
 }
 ```
 
-그래서 저는 이런 습관이 생겼습니다. **AVR처럼 RAM이 빠듯한 타깃에서는 컴파일 리포트의 여유 수치를 실사용량으로 믿지 않습니다.** 디스플레이·네트워크·오디오처럼 큰 버퍼를 쓰는 라이브러리는 이렇게 먼저 확인합니다.
+그래서 저는 이런 습관이 생겼습니다. **AVR처럼 RAM이 빠듯한 타깃에서는 컴파일 리포트의 여유 수치를 실사용량으로 믿지 않습니다.** 디스플레이, 네트워크, 오디오처럼 큰 버퍼를 쓰는 라이브러리는 이렇게 먼저 확인합니다.
 
 ```bash
 grep -n "malloc" ~/Documents/Arduino/libraries/<라이브러리>/*.cpp
@@ -140,7 +140,7 @@ grep -n "malloc" ~/Documents/Arduino/libraries/<라이브러리>/*.cpp
 
 RAM이 부족하면 [U8g2](https://github.com/olikraus/u8g2)로 옮기면 됩니다.
 
-**U8g2는 임베디드용 단색 디스플레이 그래픽 라이브러리**입니다. 이름은 *Universal 8bit Graphics Library* version 2에서 왔고, SSD1306뿐 아니라 SH1106·ST7920 등 단색 컨트롤러 수십 종을 같은 API로 다룹니다. 패널을 바꿔도 생성자 한 줄만 교체하면 나머지 코드가 그대로 돕니다. 내장 폰트가 수백 종이라 큰 숫자나 픽셀 폰트를 골라 쓰기도 편합니다.
+**U8g2는 임베디드용 단색 디스플레이 그래픽 라이브러리**입니다. 이름은 *Universal 8bit Graphics Library* version 2에서 왔고, SSD1306뿐 아니라 SH1106, ST7920 등 단색 컨트롤러 수십 종을 같은 API로 다룹니다. 패널을 바꿔도 생성자 한 줄만 교체하면 나머지 코드가 그대로 돕니다. 내장 폰트가 수백 종이라 큰 숫자나 픽셀 폰트를 골라 쓰기도 편합니다.
 
 다만 여기서 U8g2를 꺼낸 이유는 하나입니다. **화면 버퍼를 통째로 잡을지 나눠 잡을지 고를 수 있다**는 점입니다. Adafruit_SSD1306에는 그 선택지가 없어 무조건 1KB를 씁니다.
 
@@ -217,7 +217,7 @@ void loop() {
 대신 지켜야 할 규칙이 하나 있습니다.
 
 ```cpp
-// 발췌 — 잘못된 예. counter가 프레임당 8씩 증가합니다
+// 발췌: 잘못된 예. counter가 프레임당 8씩 증가합니다
 u8g2.firstPage();
 do {
   counter++;                    // ← 페이지마다 실행됩니다
@@ -242,7 +242,7 @@ bool begin(uint8_t switchvcc = SSD1306_SWITCHCAPVCC, uint8_t i2caddr = 0, ...);
 **U8g2는 8비트 주소를 씁니다.** 스캐너가 알려주는 건 7비트 주소인데, U8g2는 8비트로 저장했다가 전송할 때 `>>1` 합니다(`U8x8lib.cpp:1369`). 그래서 2를 곱해야 합니다.
 
 ```cpp
-// 발췌 — 두 라이브러리의 표기 차이만 나란히 둔 것
+// 발췌: 두 라이브러리의 표기 차이만 나란히 둔 것
 display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // Adafruit: 7비트 그대로
 u8g2.setI2CAddress(0x3C * 2);               // U8g2: 8비트라 2배
 ```
@@ -271,7 +271,7 @@ head -c 220 /dev/cu.usbmodem1301   # 220바이트를 받으면 종료
 
 ## 정리
 
-예제 4개를 만들어 GitHub에 올려뒀습니다. I2C 스캐너, 기본 텍스트 출력, 도형·애니메이션·하드웨어 스크롤, U8g2 페이지 버퍼 모드까지 전부 UNO에서 실기 검증했습니다.
+예제 4개를 만들어 GitHub에 올려뒀습니다. I2C 스캐너, 기본 텍스트 출력, 도형, 애니메이션, 하드웨어 스크롤, U8g2 페이지 버퍼 모드까지 전부 UNO에서 실기 검증했습니다.
 
 - [junho85/arduino - tzt-oled-096](https://github.com/junho85/arduino/tree/main/tzt-oled-096)
 

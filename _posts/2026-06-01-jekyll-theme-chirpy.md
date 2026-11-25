@@ -106,7 +106,7 @@ _tabs/
 
 Chirpy는 GitHub Pages의 기본 빌드를 지원하지 않아 GitHub Actions 파이프라인이 필요합니다. `.github/workflows/pages-deploy.yml` 파일을 추가했습니다.
 
-GitHub 저장소 Settings → Pages → Source를 **"GitHub Actions"** 으로 변경해야 합니다.
+GitHub 저장소 Settings → Pages → Source를 **"GitHub Actions"**으로 변경해야 합니다.
 
 ### 6. 홈 화면
 
